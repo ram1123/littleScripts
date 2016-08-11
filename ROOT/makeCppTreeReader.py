@@ -24,8 +24,11 @@ for branch in rawListOfBranches :
         specialType = True
 
     else :
-        branchType = branch.GetTitle().split('/')[1]
+        branchType = branch.GetTitle().split('/')
+        if len(branchType) != 2: continue
+        branchType = branchType[1]
         branchType = ROOTtypes[branchType]
+        #print branchType
         specialType = False
 
     branchName = branch.GetName()
